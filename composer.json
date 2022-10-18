@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Parcelshere\\": "src/"
+         }
+    },
+    "require": {
+        "rakibtg/sleekdb": "^2.13",
+        "auth0/auth0-php": "^7.9",
+        "firebase/php-jwt": "^6.2"
+    }
+}
