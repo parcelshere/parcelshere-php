@@ -7,25 +7,25 @@ $retailerDataStore = new \SleekDB\Store("retailer_data", "DB/");
 //------------------------------------------- Storage ---------------------------------------------------
 $saveData = function($dataStore, $key, $value) {
 
-    
+
     echo "Saving data.".$key."...\n";
-    
-    
+
+
     $settings = $dataStore->findBy(["key", "=", $key]);
 
-    
+
     $setting = $settings[0];
-    
+
     echo "found this settings ".$setting['_id']." :\n";
     //var_dump($setting);
-    
+
     if ($settings) {
-        
+
         $setting["value"] = $value;
         $dataStore->update($setting);
 
         echo "   ...updated\n";
-        
+
     } else {
         $user = $dataStore->insert(
             [
@@ -38,10 +38,10 @@ $saveData = function($dataStore, $key, $value) {
 
 // This Function will retrieve the retailer token and return it.
 $loadData = function($dataStore, $key) {
-   
+
     $settings = $dataStore->findBy(["key", "=", $key]);
     return $settings[0]["value"];
-   
+
 };
 //------------------------------------------- Retailer ---------------------------------------------------
 
@@ -52,9 +52,9 @@ $retailerClient = new Parcelshere\RetailerClient;
 $retailerClient->configure([
     'api_base' => 'https://staging-api.parcelshere.com',
     'client_domain' => 'auth.parcelshere.com',
-    'client_id' => '7u7AkuO2f9Ta993petOAQHtjrPTOTIbz',
-    'client_secret' => 'cLhwCGL5IFL1lR1RAk2cd233556tQiZWJBWXRtpRV6ETv19IhygfgaAWh',
-    'redirect_uri' => 'https://www.doson.co.uk/parcelshere/retailer',
+    'client_id' => 'xxxx',
+    'client_secret' => 'xxxxx',
+    'redirect_uri' => 'https://xxxx/parcelshere/retailer',
     'client_scope' => 'openid offline_access user retailer',
     'audience' => 'https://api.parcelshere.com/v1',
     'data_store' => $retailerDataStore,
@@ -148,4 +148,3 @@ echo 'Get Safe Places : '.$res_pretty.'\n';
 // $res = $retailerClient->fallback->getSafePlaces2("person", "primary");
 // $res_pretty = json_encode($res, JSON_PRETTY_PRINT);
 // echo 'Get Safe Places 2: '.$res_pretty.'\n';
-
