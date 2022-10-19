@@ -6,6 +6,8 @@ classes for API resources that initialize themselves dynamically from API
 responses which makes it compatible with a wide range of versions of the Parcelshere
 API.
 
+
+
 ## Getting started
 
 In order to use this library you need to have at least PHP 7.? version.
@@ -22,7 +24,7 @@ Then you will need to run this simple command using CLI:
 composer require parcelshere/parcelshere-php
 ```
 
-##### Manual (preferable for shared hostings)
+##### Manual (preferable for shared hosting)
 
 This way is preferable only if you are using shared hosting and do not have a possibility to use Composer. You will need to download [this archive](??)(v0.2.3), extract it and place its contents in root folder of your project. The next step is the same as using Composer, you will need to require `vendor/autoload.php` file in your index.php and lets dive in!
 
@@ -38,7 +40,7 @@ composer require rakibtg/sleekdb
 
 This is an example that can be used to store and retrieve tokens in a key-value store.
 
- 
+
 ```php
 
 $saveData = function($dataStore, $key, $value) {  // function to store key values
@@ -58,10 +60,10 @@ $saveData = function($dataStore, $key, $value) {  // function to store key value
 };
 
 $loadData = function($dataStore, $key) {  // function to retrieve values of a stored key
-   
+
     $settings = $dataStore->findBy(["key", "=", $key]);
     return $settings[0]["value"];
-   
+
 };
 
 ```
